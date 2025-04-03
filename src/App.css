@@ -1,0 +1,92 @@
+/* Main Layout */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.number-view,
+.card-view {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Number Grid */
+.number-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.num-btn {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.num-btn:hover {
+  background: #f0f0f0;
+}
+
+/* Bingo Card */
+.bingo-card {
+  max-width: 500px;
+  margin: 20px auto;
+  border: 2px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.letters-row {
+  display: flex;
+  background: #2c3e50;
+}
+
+.letter {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.card-row {
+  display: flex;
+}
+
+.cell {
+  flex: 1;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid #eee;
+}
+
+.cell.free {
+  background: #e6f7ff;
+  font-style: italic;
+}
+
+.cell.marked {
+  background: #aaffaa;
+}
+
+.back-btn {
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .number-grid {
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  }
+}

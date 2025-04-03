@@ -1,0 +1,47 @@
+.number-grid-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.main-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.grid-row {
+  display: flex;
+  gap: 8px;
+}
+
+.number-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.1s;
+}
+
+/* Only changes color WHILE being clicked */
+.number-button:active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.bottom-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.bottom-button {
+  width: 60px;
+}

@@ -1,0 +1,349 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.number-view,
+.card-view {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.number-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.num-btn {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.num-btn:hover {
+  background: #f0f0f0;
+}
+
+.back-btn {
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.game-status {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.countdown {
+  color: #e67e22;
+}
+
+.current-call {
+  color: #27ae60;
+  font-size: 1.2rem;
+}
+
+.win-message {
+  color: #e74c3c;
+  font-size: 1.5rem;
+  animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.bingo-card {
+  max-width: 500px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.winning-card {
+  box-shadow: 0 0 20px gold;
+}
+
+.letters-row {
+  display: flex;
+  background: #2c3e50;
+}
+
+.letter {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.card-row {
+  display: flex;
+}
+
+.cell {
+  flex: 1;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #eee;
+  font-weight: bold;
+}
+
+.cell.free {
+  background: #e6f7ff;
+  color: #0066cc;
+  font-style: italic;
+}
+
+.cell.marked {
+  background: #aaffaa;
+}
+
+.cell.just-called {
+  animation: highlight 1s;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: #aaffaa;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    background-color: #aaffaa;
+    transform: scale(1);
+  }
+}
+
+.called-numbers-display {
+  margin: 30px 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.called-numbers-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.called-number {
+  padding: 5px 10px;
+  background: #e9ecef;
+  border-radius: 4px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.called-number.current {
+  background: #4caf50;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.bingo-claim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.pattern-select {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.bingo-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 15px 40px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+
+.bingo-btn:hover {
+  background: #c0392b;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.bingo-btn:active {
+  transform: translateY(1px);
+}
+
+.bingo-btn.invalid {
+  animation: shake 0.5s;
+  background: #ff6b6b;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.invalid-message {
+  color: #e74c3c;
+  font-weight: bold;
+  text-align: center;
+}
+
+.new-game-btn {
+  display: block;
+  margin: 30px auto;
+  padding: 12px 30px;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.new-game-btn:hover {
+  background: #1a252f;
+}
+
+@media (max-width: 768px) {
+  .number-grid {
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  }
+
+  .bingo-card {
+    max-width: 100%;
+  }
+
+  .bingo-btn {
+    padding: 12px 30px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Add to src/index.css */
+.cell {
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.free {
+  background-color: #e6f7ff;
+  color: #0066cc;
+  font-style: italic;
+}
+
+.marked {
+  background-color: #aaffaa !important;
+}
+
+.called {
+  background-color: #f0f0f0;
+}
+
+.called-dot {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 8px;
+  height: 8px;
+  background-color: #4caf50;
+  border-radius: 50%;
+}
+
+.validation-error {
+  color: #e74c3c;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.bingo-claim {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.pattern-select {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+/* Keep other existing styles from previous implementations */
