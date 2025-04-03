@@ -112,6 +112,7 @@ export function BingoCard({
                   ? "G"
                   : "O"}
                 <CurrentNumber>{currentCall}</CurrentNumber>
+                <CountdownIndicator key={currentCall} />
               </CurrentNumberCircle>
             </CurrentNumberContainer>
           )}
@@ -431,6 +432,40 @@ const HorizontalNumber = styled.div`
   }
 `;
 
+const countdownAnimation = keyframes`
+  0% {
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+`;
+
+const CountdownIndicator = styled.div`
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  box-sizing: border-box;
+  animation: ${countdownAnimation} 5s linear infinite;
+  clip-path: inset(0 0 0 50%);
+  
+  /* Red indicator for last 10% of countdown */
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    animation: ${countdownAnimation} 5s linear infinite;
+    clip-path: inset(0 0 0 90%);
+  }
+`;
+
+
 // Add this color mapping at the top of your styled components
 const letterColors = {
   B: { primary: "#3498db", secondary: "#2980b9" }, // Blue
@@ -467,6 +502,7 @@ const CurrentNumberLabel = styled.div`
 `;
 
 const CurrentNumberCircle = styled.div`
+  position: relative;  // Add this line
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -483,7 +519,6 @@ const CurrentNumberCircle = styled.div`
   font-weight: bold;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   animation: ${pulseGlow} 1.5s infinite, ${float} 3s ease-in-out infinite;
-  position: relative;
   overflow: hidden;
   border: 3px solid #fff;
   transition: all 0.3s ease;
